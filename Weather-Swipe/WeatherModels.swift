@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct WeatherDay {
+    let dayOfWeek: String
+    let imageName: String
+    let temperature: Int
+}

@@ -11,6 +11,8 @@
 		AC609BEF2B1229D2007DF9B7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC609BEE2B1229D2007DF9B7 /* ContentView.swift */; };
 		AC609BF12B1229D3007DF9B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC609BF02B1229D3007DF9B7 /* Assets.xcassets */; };
 		AC609BF42B1229D3007DF9B7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC609BF32B1229D3007DF9B7 /* Preview Assets.xcassets */; };
+		AC609BFB2B122A6A007DF9B7 /* WeatherButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC609BFA2B122A6A007DF9B7 /* WeatherButton.swift */; };
+		AC609BFD2B122A8B007DF9B7 /* WeatherModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC609BFC2B122A8B007DF9B7 /* WeatherModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		AC609BEE2B1229D2007DF9B7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AC609BF02B1229D3007DF9B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC609BF32B1229D3007DF9B7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AC609BFA2B122A6A007DF9B7 /* WeatherButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherButton.swift; sourceTree = "<group>"; };
+		AC609BFC2B122A8B007DF9B7 /* WeatherModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 				AC609BEE2B1229D2007DF9B7 /* ContentView.swift */,
 				AC609BF02B1229D3007DF9B7 /* Assets.xcassets */,
 				AC609BF22B1229D3007DF9B7 /* Preview Content */,
+				AC609BFA2B122A6A007DF9B7 /* WeatherButton.swift */,
+				AC609BFC2B122A8B007DF9B7 /* WeatherModels.swift */,
 			);
 			path = "Weather-Swipe";
 			sourceTree = "<group>";
@@ -139,6 +145,8 @@
 			files = (
 				AC609BEF2B1229D2007DF9B7 /* ContentView.swift in Sources */,
 				AC609BED2B1229D2007DF9B7 /* Weather_SwipeApp.swift in Sources */,
+				AC609BFD2B122A8B007DF9B7 /* WeatherModels.swift in Sources */,
+				AC609BFB2B122A6A007DF9B7 /* WeatherButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
