@@ -108,3 +108,5 @@ struct MainWeatherStatusView: View {
 //* Implement change location
 //* Implement two days free, and other days are available for premium users
 //* Implement heavy weather notification, available only for paid users
+//*
+
