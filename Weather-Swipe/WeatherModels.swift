@@ -12,3 +12,76 @@ struct WeatherDay {
     let imageName: String
     let temperature: Int
 }
+
+struct Coord: Codable {
+    let lon: Double
+    let lat: Double
+}
+
+struct MainWeather: Codable {
+    let temp: Double
+    let feelsLike: Double
+    let tempMin: Double
+    let tempMax: Double
+    let pressure: Int
+    let humidity: Int
+    let seaLevel: Int
+    let groundLevel: Int
+
+    enum CodingKeys: String, CodingKey {
+        case temp, feelsLike, tempMin, tempMax, pressure, humidity
+        case seaLevel = "sea_level"
+        case groundLevel = "grnd_level"
+    }
+}
+
+struct Wind: Codable {
+    let speed: Double
+    let deg: Int
+    let gust: Double
+}
+
+struct Rain: Codable {
+    let oneHour: Double
+
+    enum CodingKeys: String, CodingKey {
+        case oneHour = "1h"
+    }
+}
+
+struct Clouds: Codable {
+    let all: Int
+}
+
+struct Sys: Codable {
+    let type: Int
+    let id: Int
+    let country: String
+    let sunrise: Int
+    let sunset: Int
+}
+
+struct WeatherCurrent: Codable {
+    let id: Int
+    let main: String
+    let description: String
+    let icon: String
+}
+
+struct WeatherResponse: Codable {
+    let coord: Coord
+    let weather: [WeatherCurrent]
+    let base: String
+    let main: MainWeather
+    let visibility: Int
+    let wind: Wind
+    let rain: Rain?
+    let clouds: Clouds
+    let dt: Int
+    let sys: Sys
+    let timezone: Int
+    let id: Int
+    let name: String
+    let cod: Int
+}
+
