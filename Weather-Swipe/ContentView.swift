@@ -39,16 +39,21 @@ struct ContentView: View {
         }
     }
     func getWeatherResponse() async throws -> WeatherResponse {
-        if let apiKey = ProcessInfo.processInfo.environment["API_KEY"] {
-            print("API key is: \(apiKey)")
+        var apiKey: String
+        
+        if let storedApiKey = ProcessInfo.processInfo.environment["API_KEY"] {
+            apiKey = storedApiKey
         } else {
             print("Environment variable 'API_KEY' not set.")
+            throw WRError.apiKeyMissing
         }
         
         let endpoint = "https://api.openweathermap.org/data/2.5/weather?lat=45.815399&lon=15.966568&appid=\(apiKey)"
         guard let url = URL(string: endpoint) else { throw WRError.invalidURL }
+        
         let (data, response) = try await URLSession.shared.data(from: url)
-        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             throw WRError.invalidResponse
         }
         do {
@@ -133,6 +138,7 @@ enum WRError: Error {
     case invalidURL
     case invalidResponse
     case invalidData
+    case apiKeyMissing
 }
 //Chalenges
 //* Swipe days like modern social networks, up and down
