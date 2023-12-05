@@ -25,20 +25,11 @@ struct MainWeather: Codable {
     let tempMax: Double
     let pressure: Int
     let humidity: Int
-    let seaLevel: Int
-    let groundLevel: Int
-
-    enum CodingKeys: String, CodingKey {
-        case temp, feelsLike, tempMin, tempMax, pressure, humidity
-        case seaLevel = "sea_level"
-        case groundLevel = "grnd_level"
-    }
 }
 
 struct Wind: Codable {
     let speed: Double
     let deg: Int
-    let gust: Double
 }
 
 struct Rain: Codable {

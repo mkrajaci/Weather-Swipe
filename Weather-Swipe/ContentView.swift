@@ -15,7 +15,7 @@ struct ContentView: View {
         ZStack {
             BackgroundView(isNight: isNight)
             VStack {
-                CityTextView(cityName: "Zagreb, HR")
+                CityTextView(cityName: weather?.name ?? "City name")
                 MainWeatherStatusView(imageName: isNight ? "moon.stars.fill" : "cloud.sun.fill", temperature: 12)
                 HStack(spacing:20) {
                     WeatherDayView(weatherDay: weatherData)
@@ -33,15 +33,23 @@ struct ContentView: View {
         .task {
             do {
                 weather = try await getWeatherResponse()
+            } catch WRError.invalidURL {
+                print("Invalid URL")
+            } catch WRError.invalidResponse {
+                print("Invalid Response")
+            } catch WRError.invalidData {
+                print("Invalid Data")
+            } catch WRError.apiKeyMissing {
+                print("Api key missing")
             } catch {
-                
+                print("Unexpected error")
             }
         }
     }
     func getWeatherResponse() async throws -> WeatherResponse {
         var apiKey: String
         
-        if let storedApiKey = ProcessInfo.processInfo.environment["API_KEY"] {
+        if let storedApiKey = ProcessInfo.processInfo.environment["apiKey"] {
             apiKey = storedApiKey
         } else {
             print("Environment variable 'API_KEY' not set.")
@@ -58,6 +66,7 @@ struct ContentView: View {
         }
         do {
             let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
             return try decoder.decode(WeatherResponse.self, from: data)
         } catch {
             throw WRError.invalidData
